@@ -1,0 +1,15 @@
+.copyright{
+    width: 75%;
+    color: white;
+    font-size: 12px;
+    line-height: 25px;
+    padding: 0px 15px
+}
+.miniFooter{
+    width: 75%;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px 0px;
+    padding: 0;
+}

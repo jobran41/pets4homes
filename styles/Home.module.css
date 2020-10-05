@@ -1,0 +1,208 @@
+.container {
+  background-image: url("../public/dog.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 500px;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.searchBox{
+  display: block;
+  position: absolute;
+  top: 150px;
+  left: 17%;
+  background-color: #fff;
+  color: #fcb843;
+  border-radius: 10px;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1.5rem;
+}
+.searchLabel{
+  visibility: hidden;
+  font-weight: 700!important;
+  padding: 12px 12px 0 0;
+  margin-bottom: .5rem;
+  display: block;
+}
+.label {
+  font-weight: 700!important;
+  padding: 12px 12px 0 0;
+  margin-bottom: .5rem;
+  display: block;
+}
+
+@media screen and (max-width: 500px) {
+  .searchBox {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+  }
+}
+
+.listItems{
+  display: flex;
+  justify-content: space-around;
+}
+.textBody {
+  margin: 0;
+}
+.item{
+  width: 23%;
+  margin: 10px 5px;
+  border: 1px solid rgba(0, 0, 0, 0.201);
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.item:hover{
+  transform: scale(1.05);
+  box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.112);
+}
+.cardImg {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+.cardBody{
+  background: white;
+  padding: 10px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 750px) {
+  .textBody {
+    font-size: 11px;
+  }
+  .listItems{
+    display: flex;
+    align-items: stretch;
+    overflow-x: scroll;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .item{
+    width: 48%;
+    height: 100%;
+    align-self: stretch;
+  }
+  .cardImg {
+    height: 30vw;
+  }
+}
+
+
+.salesList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.saleItem{
+  width: 31%;
+  margin: 15px 8px;
+  padding: 0.5rem!important;
+  border: 1px solid rgba(0, 0, 0, 0.201);
+  background: white;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.salesImg{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: .5rem!important;
+}
+.salesTitle{
+  color: #ffc107!important;
+  font-weight: 700!important;
+  margin-bottom: .75rem;
+}
+.ancest{
+  font-size: 12px;
+}
+.allDogs{
+  font-weight: 700!important;
+  color: rgb(53, 53, 53);
+}
+.allDogs:hover{
+  color: black;
+}
+
+@media screen and (max-width: 530px) {
+  .textBody {
+    font-size: 11px;
+  }
+  .listItems{
+    display: flex;
+    flex-wrap: nowrap;
+    padding-left: 50px;
+  }
+  .item{
+    width: 50vw!important;
+      /* width: 24%; */
+      margin: 10px 5px;
+      border: 1px solid rgba(0, 0, 0, 0.201);
+      border-radius: 3px;
+      overflow: unset;
+  }
+  .cardImg {
+    width: 49vw;
+    height: 50vw;
+    border-radius: 3px 3px 0px 0px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .saleItem{
+    width: 48%;
+    margin: 15px 5px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .salesList{
+    justify-content: center;
+  }
+  .saleItem{
+    width: 80%;
+    margin: 15px 5px;
+  }
+}
+
+/* width */
+.listItems::-webkit-scrollbar {
+  height: 4px;
+}
+
+/* Track */
+.listItems::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* Handle */
+.listItems::-webkit-scrollbar-thumb {
+  background: rgb(189, 189, 189);
+  border-radius: 4px;
+  transition: all 0.5;
+}
+.listItems::-webkit-scrollbar-thumb:hover {
+  background: rgb(69, 69, 69);
+}
+
+.longText{
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
