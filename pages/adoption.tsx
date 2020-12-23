@@ -1,10 +1,12 @@
+import List from "../components/Home/List";
 
 const adoption = () => {
     return (
         <div>
-            <h1>ADOPTION PAGE</h1>
+            <List listOf={"pets"} title="Adoption"/>
         </div>
     )
 }
 
 export default adoption
+

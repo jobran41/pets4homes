@@ -2,9 +2,21 @@ import styles from "../../styles/Home.module.css";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 
-const List = ({ listOf }) => {
+const List = ({ listOf ,title}) => {
   const pets = useSelector((state) => state.pets);
   const articles = useSelector((state) => state.articles);
+  const petsWanted = useSelector((state) => state.wanted);
+
+  console.log(petsWanted,"petsWanted")
+
+  const list=()=>{
+    switch (listOf) {
+      case "wanted":
+        return petsWanted
+      default:
+        return articles
+    }
+  }
 
   return (
     <section className="section-padding section-bg text-center">
@@ -12,7 +24,7 @@ const List = ({ listOf }) => {
         {listOf === "pets" ? (
           <>
             <div className="row d-flex justify-content-between align-items-center px-5">
-              <h3 className="text-warning font-weight-bold">Latest Adverts</h3>
+              <h3 className="text-warning font-weight-bold">{title || "Latest Sales"}</h3>
               <a className="text-warning font-weight-bold" href="#">
                 View all
               </a>
@@ -45,17 +57,17 @@ const List = ({ listOf }) => {
         ) : (
           <>
             <div className="row d-flex justify-content-between align-items-center px-5">
-              <h3 className="text-warning font-weight-bold">Latest Adverts</h3>
+              <h3 className="text-warning font-weight-bold">Latest Sales</h3>
               <a className="text-warning font-weight-bold" href="#">
                 View all
               </a>
             </div>
             <div className={styles.listItems}>
-              {articles.articles.map((el, i) => (
+              {list().articles.map((el, i) => (
                 <div className={styles.item} key={i}>
                   <img src={el.petImg} className={styles.cardImg} alt="pet" />
                   <div className={styles.cardBody}>
-                    <p className={styles.textBody}>Read full article</p>
+              <p className={styles.textBody}>{el.adTitle||"Read full article" }</p>
                   </div>
                 </div>
               ))}

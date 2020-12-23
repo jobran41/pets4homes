@@ -7,6 +7,9 @@ import { useRouter } from 'next/router'
 const Navbarr = () => {
     const router = useRouter()
 
+    const isTrue =router.pathname !== '/home-page'  && router.pathname!=='/advert'
+
+
     return (
         <Navbar className={styles.navbar} expand="lg">
             <Link href="/" passHref>
@@ -23,26 +26,14 @@ const Navbarr = () => {
                     <Link href="/adoption" passHref>
                         <Nav.Link className={styles.link}>Adoption</Nav.Link>
                     </Link>
-                    <Link href="/sale" passHref>
-                        <Nav.Link className={styles.link}>Sale</Nav.Link>
-                    </Link>
-                    <Link href="/stud" passHref>
-                        <Nav.Link className={styles.link}>Stud</Nav.Link>
-                    </Link>
                     <Link href="/pets-wanted" passHref>
                         <Nav.Link className={styles.link}>Pets Wanted</Nav.Link>
                     </Link>
-                    <Link href="/advice" passHref>
+                    <Link href="/pets-advice" passHref>
                         <Nav.Link className={styles.link}>Pet Advice</Nav.Link>
                     </Link>
-                    <Link href="/dog-breeds" passHref>
-                        <Nav.Link className={styles.link}>Dog Breeds</Nav.Link>
-                    </Link>
-                    <Link href="/cat-breeds" passHref>
-                        <Nav.Link className={styles.link}>Cat Breeds</Nav.Link>
-                    </Link>
-                    <Link href="/insurance" passHref>
-                        <Nav.Link className={styles.link}>Pet Insurance</Nav.Link>
+                    <Link href="/veto" passHref>
+                        <Nav.Link className={styles.link}>Veto</Nav.Link>
                     </Link>
                     <Link href="/contact" passHref>
                         <Nav.Link className={styles.link}>Contact Us</Nav.Link>
@@ -51,7 +42,7 @@ const Navbarr = () => {
 
 
                 <Form inline>
-                {!router.pathname.includes('/home-page') ? (
+                { isTrue ? (
                         <>
                             <Link href="/registration">
                                 <Button className={styles.button} variant="outline-warning">Register</Button>
@@ -84,14 +75,14 @@ const Navbarr = () => {
                                     className="dropdown-menu bg-warning text-white dropdown-menu-right"
                                     aria-labelledby="dropdownMenuButton"
                                 >
-                                    <Link href="" passHref>
+                                    <Link href="/home-page" passHref>
                                         <a className={`${styles.dropItem} dropdown-item`}>
                                             <i className={`${styles.icons} fa fa-user p-2`}></i>
                                             Account Homepage
                                         </a>
                                     </Link>
 
-                                    <Link href="" passHref>
+                                    <Link href="/advert" passHref>
                                         <a className={`${styles.dropItem} dropdown-item`}>
                                             <i className={`${styles.icons} fa fa-plus p-2`}></i>
                                             Post an Advert
@@ -147,7 +138,7 @@ const Navbarr = () => {
                                         </a>
                                     </Link>
                                     <hr className="w-100 px-0 border border-white" />
-                                    <Link href="" passHref>
+                                    <Link href="/" passHref>
                                         <a className={`${styles.dropItem} dropdown-item`}>
                                             <i className={`${styles.icons} fa fa-power-off p-2`}></i>
                                             Logout

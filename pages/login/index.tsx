@@ -1,6 +1,26 @@
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+
 import styles from '../../styles/Login.module.css'
 
 export default function(){
+    const router = useRouter()
+    const { value:email, bind:bindEmail, reset:resetEmail } = useInput('');
+    const { value:password, bind:bindPassword, reset:resetPassword } = useInput('');
+ 
+    
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+      
+        resetEmail();
+        resetPassword();
+        if(email=="jobran41@gmail.com"&&password==123456){
+            router.push("/home-page")
+            return 
+        }
+        alert(`Email ${email} or ${password} is faild`);
+    }
+
     return (
         <div className="container bg-white mt-5">
             <div className="row pt-3">
@@ -21,13 +41,14 @@ export default function(){
                 </div>
             </div>
             <div className="row my-5">
-                <form className="col-8 col-md-6 mx-auto">
+                <form className="col-8 col-md-6 mx-auto"  onSubmit={handleSubmit}>
                     <div className={styles.inputContainer}>
                         <input
                             className="input-field w-100 p-3 border border-right-0 rounded-left"
                             type="email"
                             placeholder="Email Adress"
                             name="email"
+                            {...bindEmail}
                         />
                         <i
                         className="fa fa-envelope d-flex align-items-center align-self-stretch fa-2x p-2 text-warning border border-left-0 rounded-right"
@@ -40,6 +61,7 @@ export default function(){
                         type="password"
                         placeholder="Password"
                         name="psw"
+                        {...bindPassword}
                         />
                         <i
                         className="fa fa-key d-flex align-items-center align-self-stretch fa-2x p-2 text-warning border border-left-0 rounded-right"
@@ -98,3 +120,19 @@ export default function(){
         </div>
     )
 }
+
+export const useInput = initialValue => {
+    const [value, setValue] = useState(initialValue);
+  
+    return {
+      value,
+      setValue,
+      reset: () => setValue(""),
+      bind: {
+        value,
+        onChange: event => {
+          setValue(event.target.value);
+        }
+      }
+    };
+  };

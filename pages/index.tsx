@@ -74,17 +74,33 @@ export default function Home() {
                   style={{ border: emptyType && "1px solid red" }}
                 >
                   <option value="">Pet type</option>
-                  <option value="birds">Birds</option>
-                  <option value="cats">Cats</option>
                   <option value="dogs">Dogs</option>
-                  <option value="horses">Horses</option>
-                  <option value="invertebrates">Invertebrates</option>
-                  <option value="poultry">Poultry</option>
-                  <option value="rabbits">Rabbits</option>
-                  <option value="reptiles">Reptiles</option>
-                  <option value="rodents">Rodents</option>
+
                 </select>
               </div>
+
+
+
+            </div>
+            <div className="col">
+
+{/*               <div className="form-group mb-0">
+                <label className={styles.label} htmlFor="location">
+                  Location
+                </label>
+                <select
+                  name="location"
+                  id="location"
+                  className="form-control"
+                  onChange={handleChange}
+                >
+                  <option value="">Pet Location</option>
+                  <option value="tunis">Tunis</option>
+                  <option value="ariana">Ariana</option>
+                  <option value="ben arous">Ben Arous</option>
+                  <option value="sousse">Sousse</option>
+                </select>
+              </div> */}
 
               <div className="form-group">
                 <label className={styles.label} htmlFor="pet-breed">
@@ -108,26 +124,8 @@ export default function Home() {
                 </select>
               </div>
             </div>
-            <div className="col">
-              <div className="form-group mb-0">
-                <label className={styles.label} htmlFor="location">
-                  Location
-                </label>
-                <select
-                  name="location"
-                  id="location"
-                  className="form-control"
-                  onChange={handleChange}
-                >
-                  <option value="">Pet Location</option>
-                  <option value="tunis">Tunis</option>
-                  <option value="ariana">Ariana</option>
-                  <option value="ben arous">Ben Arous</option>
-                  <option value="sousse">Sousse</option>
-                </select>
-              </div>
-
-              <div className="form-group">
+          </div>
+          <div className="form-group">
                 <label className={styles.searchLabel} htmlFor="search">
                   Search
                 </label>
@@ -140,37 +138,10 @@ export default function Home() {
                   Search
                 </button>
               </div>
-            </div>
-          </div>
         </div>
       </div>
-      <List listOf={"pets"} />
-
-      <List listOf={"articles"} />
-
-      <PetsForSale />
-
-      <div className="container mt-5 mb-2">
-        <ul className="nav nav-pills justify-content-center">
-          <li className="nav-item bg-info m-2 rounded">
-            <Link href="/dog-breeds" passHref>
-              <a className="nav-link text-white font-weight-bold">Dog Breeds</a>
-            </Link>
-          </li>
-          <li className="nav-item bg-warning m-2 rounded">
-            <Link href="/cat-breeds" passHref>
-              <a className="nav-link text-white font-weight-bold">Cat Breeds</a>
-            </Link>
-          </li>
-          <li className="nav-item bg-warning m-2 rounded">
-            <Link href="/locations" passHref>
-              <a className="nav-link text-white font-weight-bold">Locations</a>
-            </Link>
-          </li>
-        </ul>
-      </div>
-
-      <PopularDogs />
+      <List listOf={"pets"} title={"Pets Sales"} />
+      <List listOf={"articles"}  title={"Pets Sales"}/>
     </>
   );
 }
